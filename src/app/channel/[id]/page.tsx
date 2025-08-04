@@ -1,5 +1,6 @@
-const Channel = ({ params }: { params: { id: string } }) => {
-  return <div>Channel/{params.id}</div>;
+const Channel = async ({ params }: { params: Promise<{ id: string }> }) => {
+    const { id } = await params;
+    return <div>Channel/{id}</div>;
 };
 
 export default Channel;
