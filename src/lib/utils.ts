@@ -14,10 +14,11 @@ export function getRandomInt(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// export function getRandomElementFromArray(arr: any[]) {
-//     const len = arr?.length;
-//     return arr[getRandomInt(0, len - 1)];
-// }
+export function getRandomElementFromArray<T>(arr: T[]): T | undefined {
+    const len = arr?.length;
+    if (!len) return undefined;
+    return arr[getRandomInt(0, len - 1)];
+}
 
 export function chunkArray(arr: unknown[], chunkSize: number) {
     // const resultArray = [ [],[],[],[]]

@@ -3,18 +3,25 @@ export interface Playlist {
     owner: string;
     playlistName: string;
     songList: Song[];
+    imageSrc: string;
 }
 
 export interface Song {
-    id: number;
-    title: string;
-    artist: string;
-    album: string;
-    duration: number;
+    name: string;
+    channelId: number;
+    channel: string;
+    src: string;
+    imageSrc: string;
 }
 
+export interface TopSong extends Song {
+    prevRank: number;
+    rank: number;
+}
 export interface Channel {
     id: number;
     name: string;
-    imageSrc: string;
+    subscribers: number;
+    songList: Song[];
+    playlistArray: Playlist[];
 }

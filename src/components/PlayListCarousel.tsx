@@ -1,10 +1,21 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Playlist } from '@/types';
+import PlayListCard from '@/components/PlayListCard';
 interface PlayListCarouselProps {
     playlistArray: Playlist[];
     Thumbnail: React.ReactNode;
     title: string;
     subTitle: string;
+    genreList?: string[];
+    songListTop10?: Song[];
+}
+
+interface Song {
+    name: string;
+    channelId: number;
+    channel: string;
+    src: string;
+    imageSrc: string;
 }
 
 const PlayListCarousel: React.FC<PlayListCarouselProps> = ({ playlistArray, Thumbnail, title, subTitle }) => {
@@ -29,9 +40,7 @@ const PlayListCarousel: React.FC<PlayListCarouselProps> = ({ playlistArray, Thum
                 <CarouselContent className="mt-4">
                     {playlistArray.map((playlist) => (
                         <CarouselItem key={playlist.id} className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
-                            <div>
-                                <div>{playlist.playlistName}</div>
-                            </div>
+                            <PlayListCard playlist={playlist} />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
