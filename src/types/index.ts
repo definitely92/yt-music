@@ -3,7 +3,7 @@ export interface Playlist {
     owner: string;
     playlistName: string;
     songList: Song[];
-    imageSrc: string;
+    imageSrc?: string; // 선택적 속성으로 변경
 }
 
 export interface Song {
